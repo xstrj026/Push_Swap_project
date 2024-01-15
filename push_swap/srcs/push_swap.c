@@ -6,7 +6,7 @@
 /*   By: jstrojsa <jstrojsa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/06 20:33:10 by jstrojsa          #+#    #+#             */
-/*   Updated: 2024/01/14 20:34:57 by jstrojsa         ###   ########.fr       */
+/*   Updated: 2024/01/15 21:40:19 by jstrojsa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,3 +40,5 @@ int	main(int argc, char **argv)
 	free_stack(&stack_1);
 	return (0);
 }
+
+//testovaci koment
