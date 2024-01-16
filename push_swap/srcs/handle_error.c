@@ -6,7 +6,7 @@
 /*   By: jstrojsa <jstrojsa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/06 20:39:22 by jstrojsa          #+#    #+#             */
-/*   Updated: 2024/01/14 20:00:45 by jstrojsa         ###   ########.fr       */
+/*   Updated: 2024/01/16 13:25:19 by jstrojsa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,9 +61,11 @@ void	free_stack(t_list **stack)
 	*stack = NULL;
 }
 
-void	free_errors(t_list **a)
+void	free_errors(t_list **a, bool tmp, char **array)
 {
 	free_stack(a);
+	if(tmp)
+		ft_free_array_of_strings(array);
 	ft_putstr_fd("Error", 1);
 	exit(1);
 }

@@ -6,7 +6,7 @@
 /*   By: jstrojsa <jstrojsa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/06 20:37:43 by jstrojsa          #+#    #+#             */
-/*   Updated: 2024/01/14 20:01:11 by jstrojsa         ###   ########.fr       */
+/*   Updated: 2024/01/16 12:50:53 by jstrojsa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ static void	append_node(t_list **stack, int n)
 	}
 }
 
-void	init_stack_a(t_list **a, char **argv)
+void	init_stack_a(t_list **a, char **argv, bool tmp)
 {
 	long	n;
 	int		i;
@@ -67,12 +67,12 @@ void	init_stack_a(t_list **a, char **argv)
 	while (argv[i])
 	{
 		if (error_syntax(argv[i]))
-			free_errors(a);
+			free_errors(a, tmp, argv);
 		n = ft_atol(argv[i]);
 		if (n > INT_MAX || n < INT_MIN)
-			free_errors(a);
+			free_errors(a, tmp, argv);
 		if (error_duplicate(*a, (int)n))
-			free_errors(a);
+			free_errors(a, tmp, argv);
 		append_node(a, (int)n);
 		i++;
 	}

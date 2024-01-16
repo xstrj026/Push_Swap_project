@@ -6,7 +6,7 @@
 /*   By: jstrojsa <jstrojsa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/06 20:13:41 by jstrojsa          #+#    #+#             */
-/*   Updated: 2024/01/14 20:35:00 by jstrojsa         ###   ########.fr       */
+/*   Updated: 2024/01/16 13:57:02 by jstrojsa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ char	**mod_split(char *s, char c)
 	words_count = count_words(s, c);
 	if (!words_count)
 		exit(1);
-	result_array = malloc(sizeof(char *) *(size_t)(words_count) + 2);
+	result_array = malloc(sizeof(char *) * (size_t)(words_count + 2));
 	if (!result_array)
 		return (NULL);
 	while (words_count-- >= 0)

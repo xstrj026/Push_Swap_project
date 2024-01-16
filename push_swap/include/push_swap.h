@@ -17,10 +17,11 @@ typedef struct s_list {
   struct s_list *target_node; // The target node of a node in the opposite stack
   struct s_list *next;
   struct s_list *prev;
+//   char **tmp; //
 } t_list;
 
 //***Stack initiation
-void init_stack_a(t_list **a, char **argv);
+void init_stack_a(t_list **a, char **argv, bool tmp);
 
 //***Stack utils
 t_list *find_max(t_list *stack);
@@ -66,7 +67,8 @@ t_list *top_node,
 char stack_name);
 
 void	free_stack(t_list **stack);
-void	free_errors(t_list **a);
+void	free_errors(t_list **a, bool tmp, char **argv);
+void	ft_free_array_of_strings(char **tmp);
 int	error_duplicate(t_list *a, int n);
 int	error_syntax(char *str_n);
 
