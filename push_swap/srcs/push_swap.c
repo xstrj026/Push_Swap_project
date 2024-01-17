@@ -6,7 +6,7 @@
 /*   By: jstrojsa <jstrojsa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/06 20:33:10 by jstrojsa          #+#    #+#             */
-/*   Updated: 2024/01/16 13:56:31 by jstrojsa         ###   ########.fr       */
+/*   Updated: 2024/01/17 11:51:37 by jstrojsa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,19 @@
 void	ft_free_array_of_strings(char **tmp)
 {
 	int	i;
-	
+
 	i = 0;
-	if (tmp == NULL) //nelze dereferencovat null
-		return;
+	// printf("jsem v free array\n");
+	if (tmp == NULL)
+		return ;
+	// printf("kontrola NULL pointeru\n");
 	while (tmp[i])
-		free(tmp[i++]);
+	{
+		// printf("%p\n", tmp[i]);
+		free(tmp[i]);
+		i++;
+	}
+	// printf("jsem za loopem\n");
 	free(tmp);
 }
 
@@ -43,17 +50,21 @@ int	main(int argc, char **argv)
 	stack_1 = NULL;
 	stack_2 = NULL;
 	tmp = NULL;
-	if (argc == 1 || (argc == 2 && !argv[1][0]))
+	if (argc == 1)
+		// free_errors(&stack_1, false, tmp);
 		return (1);
-	//alokace pameti pro pole stringů ve kterem budou ulozeny cisla
+	if (argc == 2 && !argv[1][0])
+		free_errors(&stack_1, false, tmp);
+		// return (1);
 	if (argc == 2)
 		tmp = mod_split(argv[1], ' ');
 	if (argc == 2)
-		init_stack_a(&stack_1, tmp + 1, true);
+		init_stack_a(&stack_1, tmp, true);
 	else
-		init_stack_a(&stack_1, argv + 1, false);
+		init_stack_a(&stack_1, argv, false);
 	if (!sort_control(stack_1))
 		ft_sorting(&stack_1, &stack_2);
+	// print_list(stack_1);
 	free_stack(&stack_1);
 	ft_free_array_of_strings(tmp);
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: jstrojsa <jstrojsa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/06 20:37:43 by jstrojsa          #+#    #+#             */
-/*   Updated: 2024/01/16 12:50:53 by jstrojsa         ###   ########.fr       */
+/*   Updated: 2024/01/16 22:25:51 by jstrojsa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void	init_stack_a(t_list **a, char **argv, bool tmp)
 	long	n;
 	int		i;
 
-	i = 0;
+	i = 1;
 	while (argv[i])
 	{
 		if (error_syntax(argv[i]))

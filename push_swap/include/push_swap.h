@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jstrojsa <jstrojsa@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/01/16 15:37:30 by jstrojsa          #+#    #+#             */
+/*   Updated: 2024/01/16 15:37:54 by jstrojsa         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef PUSH_SWAP_H
 #define PUSH_SWAP_H
 
@@ -17,7 +29,6 @@ typedef struct s_list {
   struct s_list *target_node; // The target node of a node in the opposite stack
   struct s_list *next;
   struct s_list *prev;
-//   char **tmp; //
 } t_list;
 
 //***Stack initiation

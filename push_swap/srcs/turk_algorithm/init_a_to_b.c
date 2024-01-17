@@ -6,7 +6,7 @@
 /*   By: jstrojsa <jstrojsa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/06 20:30:48 by jstrojsa          #+#    #+#             */
-/*   Updated: 2024/01/06 20:31:03 by jstrojsa         ###   ########.fr       */
+/*   Updated: 2024/01/17 01:43:36 by jstrojsa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,7 @@ void	set_cheapest(t_list *stack)
 	cheapest_value = LONG_MAX;
 	while (stack)
 	{
+		stack->cheapest = false;
 		if (stack->push_cost < cheapest_value)
 		{
 			cheapest_value = stack->push_cost;

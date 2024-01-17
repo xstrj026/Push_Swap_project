@@ -6,7 +6,7 @@
 /*   By: jstrojsa <jstrojsa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/06 20:39:22 by jstrojsa          #+#    #+#             */
-/*   Updated: 2024/01/16 13:25:19 by jstrojsa         ###   ########.fr       */
+/*   Updated: 2024/01/16 22:52:51 by jstrojsa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,19 @@
 
 int	error_syntax(char *str_n)
 {
+	// printf("%c\n", *str_n);
 	if (!(*str_n == '+'
 			|| *str_n == '-'
 			|| (*str_n >= '0' && *str_n <= '9')))
 		return (1);
+	//printf("%c\n", *str_n);
 	if ((*str_n == '+'
 			|| *str_n == '-')
 		&& !(str_n[1] >= '0' && str_n[1] <= '9'))
 		return (1);
 	while (*++str_n)
 	{
+		// printf("%c\n", *str_n);
 		if (!(*str_n >= '0' && *str_n <= '9'))
 			return (1);
 	}
@@ -48,7 +51,7 @@ void	free_stack(t_list **stack)
 	t_list	*tmp;
 	t_list	*current;
 
-	if (!stack || !*stack)
+	if (!stack)
 		return ;
 	current = *stack;
 	while (current)
@@ -63,9 +66,10 @@ void	free_stack(t_list **stack)
 
 void	free_errors(t_list **a, bool tmp, char **array)
 {
+	ft_putstr_fd("Error\n", 2);
 	free_stack(a);
-	if(tmp)
+	// printf("free_stack\n");
+	if (tmp)
 		ft_free_array_of_strings(array);
-	ft_putstr_fd("Error", 1);
 	exit(1);
 }
